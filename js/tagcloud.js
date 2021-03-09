@@ -1,1 +1,44 @@
-function addLoadEvent(a){var n=window.onload;"function"!=typeof window.onload?window.onload=a:window.onload=function(){n(),a()}}addLoadEvent(function(){console.log("tag cloud plugin rock and roll!");try{TagCanvas.textFont="Trebuchet MS, Helvetica",TagCanvas.textColour="#1E90FF",TagCanvas.textHeight=15,TagCanvas.outlineColour="#E2E1D1",TagCanvas.maxSpeed=.1,TagCanvas.freezeActive=!0,TagCanvas.outlineMethod="block",TagCanvas.minBrightness=.2,TagCanvas.depth=.92,TagCanvas.pulsateTo=.6,TagCanvas.initial=[.1,-.1],TagCanvas.decel=.98,TagCanvas.reverse=!0,TagCanvas.hideTags=!1,TagCanvas.shadow="#ccf",TagCanvas.shadowBlur=3,TagCanvas.weight=!1,TagCanvas.imageScale=null,TagCanvas.fadeIn=1e3,TagCanvas.clickToFront=600,TagCanvas.lock=!1,TagCanvas.Start("resCanvas"),TagCanvas.tc.resCanvas.Wheel(!0)}catch(a){console.log(a),document.getElementById("myCanvasContainer").style.display="none"}});
+ function addLoadEvent(func) {
+     var oldonload = window.onload;
+     if (typeof window.onload != 'function') {
+         window.onload = func;
+     } else {
+         window.onload = function() {
+             oldonload();
+             func();
+         }
+     }
+ }
+
+ addLoadEvent(function() {
+     console.log('tag cloud plugin rock and roll!');
+
+     try {
+         TagCanvas.textFont = 'Trebuchet MS, Helvetica';
+         TagCanvas.textColour = '#1E90FF';
+         TagCanvas.textHeight = 15;
+         TagCanvas.outlineColour = '#E2E1D1';
+         TagCanvas.maxSpeed = 0.1;
+         TagCanvas.freezeActive = true;
+         TagCanvas.outlineMethod = 'block';
+         TagCanvas.minBrightness = 0.2;
+         TagCanvas.depth = 0.92;
+         TagCanvas.pulsateTo = 0.6;
+         TagCanvas.initial = [0.1,-0.1];
+         TagCanvas.decel = 0.98;
+         TagCanvas.reverse = true;
+         TagCanvas.hideTags = false;
+         TagCanvas.shadow = '#ccf';
+         TagCanvas.shadowBlur = 3;
+         TagCanvas.weight = false;
+         TagCanvas.imageScale = null;
+         TagCanvas.fadeIn = 1000;
+         TagCanvas.clickToFront = 600;
+         TagCanvas.lock = false;
+         TagCanvas.Start('resCanvas');
+         TagCanvas.tc['resCanvas'].Wheel(true)
+     } catch(e) {
+         console.log(e);
+         document.getElementById('myCanvasContainer').style.display = 'none';
+     }
+ });
